@@ -1,6 +1,5 @@
 import ConnectFourRandomAI
 import ConnectFourMinimaxAI
-import ConnectFourMinimaxWithABPruningAI
 import ConnectFourMinimaxWithABPruningAI2
 
 import ConnectFourEngine

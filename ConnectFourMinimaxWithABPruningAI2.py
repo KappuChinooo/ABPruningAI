@@ -31,9 +31,9 @@ def max_play(board, token, ply_remaining, al, be, value):
         if ply_remaining <= 0 or newboard.is_full():
             value = state_score(newboard, token)
         else:
-            res = min_play(newboard, token, ply_remaining-1, al, be, value)
-            min_move = res[0]
-            value = res[1]
+            (min_move, value1) = min_play(newboard, token, ply_remaining-1, al, be, value)
+            if value < value1:
+                moves.append
         al = max(al, value)
         moves.append((col, value))
         if be <= al:
@@ -45,7 +45,7 @@ def max_play(board, token, ply_remaining, al, be, value):
 def AIcheck(board, token):
     # Modify to set a different search depth
     starttime = time.time()
-    ply_remaining = 0
+    ply_remaining = 3
     alpha = -(math.inf)
     beta =  math.inf
     val = 0
@@ -65,9 +65,9 @@ def min_play(board, token, ply_remaining, al, be, value):
         if ply_remaining <= 0 or newboard.is_full():
             value = state_score(newboard, token)
         else:
-            res = max_play(newboard, token, ply_remaining-1, al, be, value)
-            max_move = res[0]
-            value = res[1]
+            (max_move, value1) = max_play(newboard, token, ply_remaining-1, al, be, value)
+            if value > value1:
+                moves.append
         be = min(be, value)
         moves.append((col, value))
         if be <= al:
