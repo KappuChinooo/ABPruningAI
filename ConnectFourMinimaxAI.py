@@ -38,7 +38,7 @@ def max_play(board, token, ply_remaining):
 def AIcheck(board, token):
     # Modify to set a different search depth
     starttime = time.time()
-    ply_remaining = 0
+    ply_remaining = 3
     (move, value) = max_play(board, token, ply_remaining)
     endtime = time.time()
     tkn = endtime - starttime
