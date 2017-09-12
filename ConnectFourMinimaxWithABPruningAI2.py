@@ -31,7 +31,7 @@ def max_play(board, token, ply_remaining, al, be, value):
         if ply_remaining <= 0 or newboard.is_full():
             value = state_score(newboard, token)
         else:
-            (min_move, value1) = min_play(newboard, token, ply_remaining-1, al, be, value)
+            (min_move, value) = min_play(newboard, token, ply_remaining-1, al, be, value)
         al = max(al, value)
         moves.append((col, value))
         if be <= al:
@@ -63,7 +63,7 @@ def min_play(board, token, ply_remaining, al, be, value):
         if ply_remaining <= 0 or newboard.is_full():
             value = state_score(newboard, token)
         else:
-            (max_move, value1) = max_play(newboard, token, ply_remaining-1, al, be, value)
+            (max_move, value) = max_play(newboard, token, ply_remaining-1, al, be, value)
         be = min(be, value)
         moves.append((col, value))
         if be <= al:
